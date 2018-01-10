@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Digital Downloads - Commission Taxonomy Rates\n"
+"POT-Creation-Date: 2018-01-08 22:53+0000\n"
+"PO-Revision-Date: 2018-01-08 22:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: edd-commission-taxonomy-rates.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: edd-commission-taxonomy-rates.php:155
+msgid "Rate"
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:194 edd-commission-taxonomy-rates.php:216
+msgid "Commission Rate"
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:196 edd-commission-taxonomy-rates.php:218
+msgid ""
+"The taxonomy commission rate. This can be overwritten on a per-product "
+"basis. 10 = 10%"
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:411
+msgid "Rate preference"
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:412
+msgid ""
+"This option determines whether or not to favour the highest or lowest "
+"taxonomy commission rate."
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:416
+msgid "Highest, favour the taxonomy with the highest commission rate"
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:417
+msgid "Lowest, favour the taxonomy with the lowest commission rate"
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:419
+msgid "Taxonomy Rate Preference"
+msgstr ""
+
+#: edd-commission-taxonomy-rates.php:420
+msgid ""
+"Downloads can be assigned different taxonomies, such as categories and tags. "
+"If a download is assigned multiple taxonomies, this setting gives you the "
+"option to favor either the highest or the lowest commission rate."
+msgstr ""
+
+#: includes/class-activation.php:47 includes/class-activation.php:122
+msgid "This plugin"
+msgstr ""
+
+#: includes/class-activation.php:84
+msgid "activate it"
+msgstr ""
+
+#: includes/class-activation.php:87
+msgid "install it"
+msgstr ""
+
+#: includes/class-activation.php:90
+#, php-format
+msgid " requires Easy Digital Downloads! Please %s to continue!"
+msgstr ""
+
+#: includes/class-activation.php:156
+#, php-format
+msgid " requires %sEDD Commissions%s. Please activate it to continue."
+msgstr ""
+
+#: includes/class-activation.php:158
+#, php-format
+msgid " requires %sEDD Commissions%s. Please install it to continue."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Easy Digital Downloads - Commission Taxonomy Rates"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://sellcomet.com/downloads/commission-taxonomy-rates"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Set commission rates on a per-category or tag basis."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sell Comet"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://sellcomet.com"
+msgstr ""
