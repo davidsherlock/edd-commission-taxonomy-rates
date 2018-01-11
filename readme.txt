@@ -56,5 +56,5 @@ OR you can just install it with WordPress by going to Plugins >> Add New >> and 
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.0, January 11, 2018 =
 * Initial release

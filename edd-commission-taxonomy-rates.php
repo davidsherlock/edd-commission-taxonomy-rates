@@ -83,57 +83,57 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
 
             if ( is_admin() ) {
 
-              // Register commission extension settings
-              add_filter( 'eddc_settings', array( $this, 'settings' ), 1 );
+                // Register commission extension settings
+                add_filter( 'eddc_settings', array( $this, 'settings' ), 1 );
 
-              /**
-               * Download Categories
-               */
+                /**
+                * Download Categories
+                */
 
-              // Add "Rate" taxonomy header
-              add_filter( 'manage_edit-download_category_columns', array( $this, 'add_field_columns' ), 10, 1 );
+                // Add "Rate" taxonomy header
+                add_filter( 'manage_edit-download_category_columns', array( $this, 'add_field_columns' ), 10, 1 );
 
-              // Add "Rate" taxonomy contents
-              add_filter( 'manage_download_category_custom_column', array( $this, 'add_field_column_contents' ), 10, 3 );
+                // Add "Rate" taxonomy contents
+                add_filter( 'manage_download_category_custom_column', array( $this, 'add_field_column_contents' ), 10, 3 );
 
-              // Add "Commission Rate" text field to add taxonomy page
-              add_action( 'download_category_add_form_fields', array( $this, 'add_meta_fields' ), 10, 2 );
+                // Add "Commission Rate" text field to add taxonomy page
+                add_action( 'download_category_add_form_fields', array( $this, 'add_meta_fields' ), 10, 2 );
 
-              // Add "Commission Rate" text field to edit taxonomy page
-              add_action( 'download_category_edit_form_fields', array( $this, 'edit_meta_fields' ), 10, 2 );
+                // Add "Commission Rate" text field to edit taxonomy page
+                add_action( 'download_category_edit_form_fields', array( $this, 'edit_meta_fields' ), 10, 2 );
 
-              // Save "Commission Rate" text field for newly created taxonomies
-              add_action( 'created_download_category', array( $this, 'save_taxonomy_meta' ), 10, 2 );
+                // Save "Commission Rate" text field for newly created taxonomies
+                add_action( 'created_download_category', array( $this, 'save_taxonomy_meta' ), 10, 2 );
 
-              // Save "Commission Rate" text field for edited taxonomies
-              add_action( 'edited_download_category', array( $this, 'save_taxonomy_meta' ), 10, 2 );
+                // Save "Commission Rate" text field for edited taxonomies
+                add_action( 'edited_download_category', array( $this, 'save_taxonomy_meta' ), 10, 2 );
 
-              /**
-               * Download Tags
-               */
+                /**
+                * Download Tags
+                */
 
-              // Add "Rate" taxonomy header
-              add_filter( 'manage_edit-download_tag_columns', array( $this, 'add_field_columns' ), 10, 1 );
+                // Add "Rate" taxonomy header
+                add_filter( 'manage_edit-download_tag_columns', array( $this, 'add_field_columns' ), 10, 1 );
 
-              // Add "Rate" taxonomy contents
-              add_filter( 'manage_download_tag_custom_column', array( $this, 'add_field_column_contents' ), 10, 3 );
+                // Add "Rate" taxonomy contents
+                add_filter( 'manage_download_tag_custom_column', array( $this, 'add_field_column_contents' ), 10, 3 );
 
-              // Add "Commission Rate" text field to add taxonomy page
-              add_action( 'download_tag_add_form_fields', array( $this, 'add_meta_fields' ), 10, 2 );
+                // Add "Commission Rate" text field to add taxonomy page
+                add_action( 'download_tag_add_form_fields', array( $this, 'add_meta_fields' ), 10, 2 );
 
-              // Add "Commission Rate" text field to edit taxonomy page
-              add_action( 'download_tag_edit_form_fields', array( $this, 'edit_meta_fields' ), 10, 2 );
+                // Add "Commission Rate" text field to edit taxonomy page
+                add_action( 'download_tag_edit_form_fields', array( $this, 'edit_meta_fields' ), 10, 2 );
 
-              // Save "Commission Rate" text field for newly created taxonomies
-              add_action( 'created_download_tag', array( $this, 'save_taxonomy_meta' ), 10, 2 );
+                // Save "Commission Rate" text field for newly created taxonomies
+                add_action( 'created_download_tag', array( $this, 'save_taxonomy_meta' ), 10, 2 );
 
-              // Save "Commission Rate" text field for edited taxonomies
-              add_action( 'edited_download_tag', array( $this, 'save_taxonomy_meta' ), 10, 2 );
+                // Save "Commission Rate" text field for edited taxonomies
+                add_action( 'edited_download_tag', array( $this, 'save_taxonomy_meta' ), 10, 2 );
 
             }
 
-            // Filter the eddc_get_recipient_rate function to check and set the taxonomy rate
-            add_filter( 'eddc_get_recipient_rate', array( $this, 'get_recipient_taxonomy_rate' ), 10, 3 );
+        // Filter the eddc_get_recipient_rate function to check and set the taxonomy rate
+        add_filter( 'eddc_get_recipient_rate', array( $this, 'get_recipient_taxonomy_rate' ), 10, 3 );
 
         }
 
@@ -147,9 +147,9 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return      array $columns The taxonomy column headers with our addition
          */
         public function add_field_columns( $columns ) {
-          $columns['commission_rate'] = __( 'Rate', 'edd-commission-taxonomy-rates' );
+            $columns['commission_rate'] = __( 'Rate', 'edd-commission-taxonomy-rates' );
 
-          return $columns;
+            return $columns;
         }
 
 
@@ -164,14 +164,14 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return      array $content The taxonomy content with our addition
          */
         public function add_field_column_contents( $content, $column_name, $term_id ) {
-          switch( $column_name ) {
-            case 'commission_rate' :
-              $meta = get_term_meta( $term_id, 'edd_commission_taxonomy_rate', true );
-              $content = ( ! empty ( $meta ) ) ? $meta : '—';
-              break;
-          }
+            switch( $column_name ) {
+                case 'commission_rate' :
+                  $meta = get_term_meta( $term_id, 'edd_commission_taxonomy_rate', true );
+                  $content = ( ! empty ( $meta ) ) ? $meta : '—';
+                  break;
+            }
 
-          return $content;
+        return $content;
         }
 
 
@@ -184,13 +184,13 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return      void
          */
         public function add_meta_fields( $taxonomy ) {
-          ?>
-          <div class="form-field term-rate-wrap">
-          	<label for="edd_commission_taxonomy_rate"><?php _e( 'Commission Rate', 'edd-commission-taxonomy-rates' ); ?></label>
-          	<input name="edd_commission_taxonomy_rate" id="edd_commission_taxonomy_rate" type="text" value="" size="40" aria-required="true" />
-          	<p><?php _e('The taxonomy commission rate. This can be overwritten on a per-product basis. 10 = 10%'); ?></p>
-          </div>
-          <?php
+            ?>
+            <div class="form-field term-rate-wrap">
+            	<label for="edd_commission_taxonomy_rate"><?php _e( 'Commission Rate', 'edd-commission-taxonomy-rates' ); ?></label>
+            	<input name="edd_commission_taxonomy_rate" id="edd_commission_taxonomy_rate" type="text" value="" size="40" aria-required="true" />
+            	<p><?php _e('The taxonomy commission rate. This can be overwritten on a per-product basis. 10 = 10%'); ?></p>
+            </div>
+            <?php
         }
 
 
@@ -204,16 +204,17 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return      void
          */
         public function edit_meta_fields( $term, $taxonomy ) {
-          $rate = get_term_meta( $term->term_id, 'edd_commission_taxonomy_rate', true );
+            $rate = get_term_meta( $term->term_id, 'edd_commission_taxonomy_rate', true );
 
-          ?>
-          <tr class="form-field term-rate-wrap">
-      			<th scope="row"><label for="edd_commission_taxonomy_rate"><?php _e( 'Commission Rate', 'edd-commission-taxonomy-rates' ); ?></label></th>
-      			<td><input name="edd_commission_taxonomy_rate" id="edd_commission_taxonomy_rate" type="text" value="<?php if ( isset( $rate ) ) echo esc_attr( $rate ); ?>" size="40" aria-required="true" />
-      			<p class="description"><?php _e('The taxonomy commission rate. This can be overwritten on a per-product basis. 10 = 10%'); ?></p></td>
-      		</tr>
-          <?php
+            ?>
+            <tr class="form-field term-rate-wrap">
+            	<th scope="row"><label for="edd_commission_taxonomy_rate"><?php _e( 'Commission Rate', 'edd-commission-taxonomy-rates' ); ?></label></th>
+            	<td><input name="edd_commission_taxonomy_rate" id="edd_commission_taxonomy_rate" type="text" value="<?php if ( isset( $rate ) ) echo esc_attr( $rate ); ?>" size="40" aria-required="true" />
+            	<p class="description"><?php _e('The taxonomy commission rate. This can be overwritten on a per-product basis. 10 = 10%'); ?></p></td>
+            </tr>
+            <?php
         }
+
 
         /**
          * Sanitize and save "Commission Rate" text field for newly created and edited taxonomies
@@ -225,16 +226,15 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return      void
          */
         public function save_taxonomy_meta( $term_id, $tag_id ) {
-          if ( current_user_can( 'manage_shop_settings' ) ) {
+            if ( current_user_can( 'manage_shop_settings' ) ) {
+                if ( isset( $_POST['edd_commission_taxonomy_rate'] ) ) {
 
-            if ( isset( $_POST['edd_commission_taxonomy_rate'] ) ) {
+                  $rate = sanitize_text_field( $_POST['edd_commission_taxonomy_rate'] );
+                  $rate = $rate < 0 || ! is_numeric( $rate ) ? '' : $rate;
 
-              $rate = sanitize_text_field( $_POST['edd_commission_taxonomy_rate'] );
-              $rate = $rate < 0 || ! is_numeric( $rate ) ? '' : $rate;
-
-              update_term_meta( $term_id, 'edd_commission_taxonomy_rate', $rate );
+                  update_term_meta( $term_id, 'edd_commission_taxonomy_rate', $rate );
+                }
             }
-          }
         }
 
 
@@ -249,33 +249,33 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return      void
          */
         public function get_taxonomy_rate( $download_id = 0, $taxonomy = 'download_category', $highest = true ) {
-          $ret = null;
+            $ret = null;
 
-          $post_categories = get_the_terms( $download_id, $taxonomy );
+            $post_categories = get_the_terms( $download_id, $taxonomy );
 
-          if ( ! empty( $post_categories ) && ! is_wp_error( $post_categories ) ) {
+            if ( ! empty( $post_categories ) && ! is_wp_error( $post_categories ) ) {
               $categories = wp_list_pluck( $post_categories, 'term_id' );
-          }
-
-          if ( ! empty ( $categories ) ) {
-            $rates = array();
-
-            foreach( $categories as $category ) {
-              $meta = get_term_meta( $category, 'edd_commission_taxonomy_rate', true );
-
-              if ( empty( $meta ) ) {
-                continue;
-              }
-
-              $rates[] = $meta;
             }
 
-            if ( ! empty( $rates ) ) {
-              $ret = ( $highest ) ? max( $rates ) : min( $rates );
-            }
-          }
+            if ( ! empty ( $categories ) ) {
+                $rates = array();
 
-          return apply_filters( 'edd_get_taxonomy_commission_rate', $ret, $download_id );
+                foreach( $categories as $category ) {
+                    $meta = get_term_meta( $category, 'edd_commission_taxonomy_rate', true );
+
+                    if ( empty( $meta ) ) {
+                        continue;
+                    }
+
+                    $rates[] = $meta;
+                }
+
+                if ( ! empty( $rates ) ) {
+                    $ret = ( $highest ) ? max( $rates ) : min( $rates );
+                }
+            }
+
+            return apply_filters( 'edd_get_taxonomy_commission_rate', $ret, $download_id );
         }
 
 
@@ -299,61 +299,61 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return      $rate INT|FLOAT The commission rate
          */
         public function get_recipient_taxonomy_rate( $rate, $download_id, $user_id ) {
-          $rate = null;
+            $rate = null;
 
-          // Get commissions taxonomy tate preference
-          $rate_preference = ( edd_get_option( 'edd_commissions_rate_preference', 'highest' ) == 'lowest' ) ? false : true;
+            // Get commissions taxonomy tate preference
+            $rate_preference = ( edd_get_option( 'edd_commissions_rate_preference', 'highest' ) == 'lowest' ) ? false : true;
 
-          // Check for a rate specified on a specific product
-          if ( ! empty( $download_id ) ) {
-            $settings   = get_post_meta( $download_id, '_edd_commission_settings', true );
-            $rates      = isset( $settings['amount'] ) ? array_map( 'trim', explode( ',', $settings['amount'] ) ) : array();
-            $recipients = array_map( 'trim', explode( ',', $settings['user_id'] ) );
-            $rate_key   = array_search( $user_id, $recipients );
+                // Check for a rate specified on a specific product
+                if ( ! empty( $download_id ) ) {
+                    $settings   = get_post_meta( $download_id, '_edd_commission_settings', true );
+                    $rates      = isset( $settings['amount'] ) ? array_map( 'trim', explode( ',', $settings['amount'] ) ) : array();
+                    $recipients = array_map( 'trim', explode( ',', $settings['user_id'] ) );
+                    $rate_key   = array_search( $user_id, $recipients );
 
-            if ( isset( $rates[ $rate_key ] ) ) {
-              $rate = $rates[ $rate_key ];
+                if ( isset( $rates[ $rate_key ] ) ) {
+                    $rate = $rates[ $rate_key ];
+                }
             }
-          }
 
-          // Check for download tag taxonomy commission rate
-          if ( null === $rate || '' === $rate ) {
-            $rate = $this->get_taxonomy_rate( $download_id, 'download_tag', $rate_preference );
-
+            // Check for download tag taxonomy commission rate
             if ( null === $rate || '' === $rate ) {
-              $rate = null;
+                $rate = $this->get_taxonomy_rate( $download_id, 'download_tag', $rate_preference );
+
+                if ( null === $rate || '' === $rate ) {
+                    $rate = null;
+                }
             }
-          }
 
-          // Check for download category taxonomy commission rate
-          if ( null === $rate || '' === $rate ) {
-            $rate = $this->get_taxonomy_rate( $download_id, 'download_category', $rate_preference );
-
+            // Check for download category taxonomy commission rate
             if ( null === $rate || '' === $rate ) {
-              $rate = null;
+                $rate = $this->get_taxonomy_rate( $download_id, 'download_category', $rate_preference );
+
+                if ( null === $rate || '' === $rate ) {
+                    $rate = null;
+                }
             }
-          }
 
-          // Check for a user specific global rate
-          if ( ! empty( $user_id ) && ( null === $rate || '' === $rate ) ) {
-            $rate = get_user_meta( $user_id, 'eddc_user_rate', true );
+            // Check for a user specific global rate
+            if ( ! empty( $user_id ) && ( null === $rate || '' === $rate ) ) {
+                $rate = get_user_meta( $user_id, 'eddc_user_rate', true );
 
-            if ( '' === $rate ) {
-              $rate = null;
+                if ( '' === $rate ) {
+                    $rate = null;
+                }
             }
-          }
 
-          // Check for an overall global rate
-          if ( null === $rate && eddc_get_default_rate() ) {
-            $rate = eddc_get_default_rate();
-          }
+            // Check for an overall global rate
+            if ( null === $rate && eddc_get_default_rate() ) {
+                $rate = eddc_get_default_rate();
+            }
 
-          // Set rate to 0 if no rate was found
-          if ( null === $rate || '' === $rate ) {
-            $rate = 0;
-          }
+            // Set rate to 0 if no rate was found
+            if ( null === $rate || '' === $rate ) {
+                $rate = 0;
+            }
 
-          return apply_filters( 'edd_get_recipient_taxonomy_rate', (float) $rate, $download_id, $user_id );
+            return apply_filters( 'edd_get_recipient_taxonomy_rate', (float) $rate, $download_id, $user_id );
         }
 
 
@@ -400,23 +400,23 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          */
         public function settings( $commission_settings ) {
 
-          $new_settings = array(
-            array(
-        			'id'      => 'edd_commissions_rate_preference',
-        			'name'    => __( 'Rate Preference', 'edd-commission-taxonomy-rates' ),
-        			'desc'    => __( 'This option determines whether or not to favour the highest or lowest taxonomy commission rate.', 'edd-commission-taxonomy-rates' ),
-        			'type'    => 'radio',
-        			'std'     => 'highest',
-        			'options' => array(
-        				'highest' => __( 'Highest, favour the taxonomy with the highest commission rate', 'edd-commission-taxonomy-rates' ),
-        				'lowest'  => __( 'Lowest, favour the taxonomy with the lowest commission rate', 'edd-commission-taxonomy-rates' ),
-        			),
-        			'tooltip_title' => __( 'Taxonomy Rate Preference', 'edd-commission-taxonomy-rates' ),
-        			'tooltip_desc'  => __( 'Downloads can be assigned different taxonomies, such as categories and tags. If a download is assigned multiple taxonomies, this setting gives you the option to favor either the highest or the lowest commission rate.', 'edd-commission-taxonomy-rates' ),
-        		),
-          );
+            $new_settings = array(
+                array(
+            		'id'      => 'edd_commissions_rate_preference',
+            		'name'    => __( 'Rate Preference', 'edd-commission-taxonomy-rates' ),
+            		'desc'    => __( 'This option determines whether or not to favour the highest or lowest taxonomy commission rate.', 'edd-commission-taxonomy-rates' ),
+            		'type'    => 'radio',
+            		'std'     => 'highest',
+            		'options' => array(
+            			'highest' => __( 'Highest, favour the taxonomy with the highest commission rate', 'edd-commission-taxonomy-rates' ),
+            			'lowest'  => __( 'Lowest, favour the taxonomy with the lowest commission rate', 'edd-commission-taxonomy-rates' ),
+            		),
+            		'tooltip_title' => __( 'Taxonomy Rate Preference', 'edd-commission-taxonomy-rates' ),
+            		'tooltip_desc'  => __( 'Downloads can be assigned different taxonomies, such as categories and tags. If a download is assigned multiple taxonomies, this setting gives you the option to favor either the highest or the lowest commission rate.', 'edd-commission-taxonomy-rates' ),
+            	),
+            );
 
-          return array_merge( $commission_settings, $new_settings );
+            return array_merge( $commission_settings, $new_settings );
         }
     }
 } // End if class_exists check
@@ -431,17 +431,17 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
  */
 function EDD_Commission_Taxonomy_Rates_load() {
     if ( ! class_exists( 'Easy_Digital_Downloads' ) || ! class_exists( 'EDDC' ) ) {
-      if ( ! class_exists( 'EDD_Extension_Activation' ) || ! class_exists( 'EDD_Commissions_Activation' ) ) {
-          require_once 'includes/class-activation.php';
-      }
+        if ( ! class_exists( 'EDD_Extension_Activation' ) || ! class_exists( 'EDD_Commissions_Activation' ) ) {
+            require_once 'includes/class-activation.php';
+        }
 
-    // Easy Digital Downloads activation
-		if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
-			$edd_activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
-			$edd_activation = $edd_activation->run();
-		}
+        // Easy Digital Downloads activation
+        if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
+            $edd_activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
+            $edd_activation = $edd_activation->run();
+        }
 
-    // Commissions activation
+        // Commissions activation
 		if ( ! class_exists( 'EDDC' ) ) {
 			$edd_commissions_activation = new EDD_Commissions_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
 			$edd_commissions_activation = $edd_commissions_activation->run();
