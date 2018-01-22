@@ -3,7 +3,7 @@
  * Plugin Name:     Easy Digital Downloads - Commission Taxonomy Rates
  * Plugin URI:      https://sellcomet.com/downloads/commission-taxonomy-rates
  * Description:     Set commission rates on a per-category or tag basis.
- * Version:         1.0.0
+ * Version:         1.0.1
  * Author:          Sell Comet
  * Author URI:      https://sellcomet.com
  * Text Domain:     edd-commission-taxonomy-rates
@@ -62,7 +62,7 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          */
         private function setup_constants() {
             // Plugin version
-            define( 'EDD_COMMISSION_TAXONOMY_RATES_VER', '1.0.0' );
+            define( 'EDD_COMMISSION_TAXONOMY_RATES_VER', '1.0.1' );
 
             // Plugin path
             define( 'EDD_COMMISSION_TAXONOMY_RATES_DIR', plugin_dir_path( __FILE__ ) );
@@ -166,12 +166,12 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
         public function add_field_column_contents( $content, $column_name, $term_id ) {
             switch( $column_name ) {
                 case 'commission_rate' :
-                  $meta = get_term_meta( $term_id, 'edd_commission_taxonomy_rate', true );
-                  $content = ( ! empty ( $meta ) ) ? $meta : '—';
-                  break;
+                    $meta = get_term_meta( $term_id, 'edd_commission_taxonomy_rate', true );
+                    $content = ( ! empty ( $meta ) ) ? $meta : '—';
+                    break;
             }
 
-        return $content;
+            return $content;
         }
 
 
@@ -304,15 +304,18 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
             // Get commissions taxonomy tate preference
             $rate_preference = ( edd_get_option( 'edd_commissions_rate_preference', 'highest' ) == 'lowest' ) ? false : true;
 
-                // Check for a rate specified on a specific product
-                if ( ! empty( $download_id ) ) {
-                    $settings   = get_post_meta( $download_id, '_edd_commission_settings', true );
-                    $rates      = isset( $settings['amount'] ) ? array_map( 'trim', explode( ',', $settings['amount'] ) ) : array();
-                    $recipients = array_map( 'trim', explode( ',', $settings['user_id'] ) );
-                    $rate_key   = array_search( $user_id, $recipients );
+            // Check for a rate specified on a specific product
+            if ( ! empty( $download_id ) ) {
+                $settings   = get_post_meta( $download_id, '_edd_commission_settings', true );
 
-                if ( isset( $rates[ $rate_key ] ) ) {
-                    $rate = $rates[ $rate_key ];
+                    if ( ! empty( $settings ) && is_array( $settings ) ) {
+                        $rates      = isset( $settings['amount'] ) ? array_map( 'trim', explode( ',', $settings['amount'] ) ) : array();
+                        $recipients = array_map( 'trim', explode( ',', $settings['user_id'] ) );
+                        $rate_key   = array_search( $user_id, $recipients );
+
+                    if ( isset( $rates[ $rate_key ] ) ) {
+                        $rate = $rates[ $rate_key ];
+                    }
                 }
             }
 
@@ -399,8 +402,14 @@ if( !class_exists( 'EDD_Commission_Taxonomy_Rates' ) ) {
          * @return    array $commission_settings The merged array of settings for the Commissions settings page.
          */
         public function settings( $commission_settings ) {
-
             $new_settings = array(
+                array(
+                    'id'      => 'edd_commission_taxonomy_rates_header',
+                    'name'    => '<strong>' . __( 'Taxonomy Settings', 'edd-commission-thresholds' ) . '</strong>',
+                    'desc'    => '',
+                    'type'    => 'header',
+                    'size'    => 'regular',
+                ),
                 array(
             		'id'      => 'edd_commissions_rate_preference',
             		'name'    => __( 'Rate Preference', 'edd-commission-taxonomy-rates' ),

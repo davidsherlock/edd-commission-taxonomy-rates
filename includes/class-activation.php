@@ -93,7 +93,7 @@ class EDD_Extension_Activation {
 
 
 /**
- * EDD Wish Lists Extension Activation Handler Class
+ * EDD Commissions Extension Activation Handler Class
  *
  * @since       1.0.0
  */
