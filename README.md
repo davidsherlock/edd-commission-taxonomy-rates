@@ -1,4 +1,4 @@
-## [Easy Digital Downloads - Commission Taxonomy Rates](https://sellcomet.com/downloads/commission-taxonomy-rates)
+## [Easy Digital Downloads - Commission Taxonomy Rates](https://wordpress.org/plugins/edd-commission-taxonomy-rates/)
 
 Commission Taxonomy Rates for Easy Digital Downloads Commissions allows you to set commission rates on a per-category and tag basis, giving you more streamlined, granular control over your commissions.
 
@@ -40,7 +40,7 @@ If you find an issue, let us know [here](https://github.com/davidsherlock/edd-co
 
 
 ## Support
-This is a developer's portal for Commission Taxonomy Rates and should _not_ be used for support. Please visit the [support page](https://sellcomet.com/contact/) if you need to submit a support request.
+This is a developer's portal for Commission Taxonomy Rates and should _not_ be used for support. Please visit the [support page](https://wordpress.org/support/plugin/edd-commission-taxonomy-rates) if you need to submit a support request.
 
 ## Contributions
 Anyone is welcome to contribute to Commission Taxonomy Rates.
